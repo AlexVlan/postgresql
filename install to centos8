@@ -1,3 +1,49 @@
 setfont UniCyr_8x16                                         Русский язык
 Меняем в /etc/vconsole.conf FONT="UniCyr_8x16"
 
+sudo vi /etc/sysconfig/selinux
+disabled
+sudo setenforce 0
+
+Отключаем использование IPv6 на уровне ядра. В файле /etc/sysctl.conf добавляем строчки
+net.ipv6.conf.all.disable_ipv6 = 1
+net.ipv6.conf.default.disable_ipv6 = 1
+
+
+sysctl -p
+sudo dnf -y update
+sudo dnf -y install epel-release
+sudo dnf -y install wget bzip2 traceroute net-tools nano bind-utils telnet htop atop iftop lsof git rsync policycoreutils-python-utils tar zip unzip
+sudo hostnamectl set-hostname psg1c
+ sudo vi /etc/hosts 
+ip name
+
+sudo rpm -i http://repo.postgrespro.ru/pgpro-12/keys/centos.rpm
+sudo dnf makecache
+sudo dnf -y install postgrespro-std-12
+
+sudo systemctl status postgrespro-std-12
+sudo rm -rf /var/lib/pgpro/std-12/data
+sudo /opt/pgpro/std-12/bin/pg-setup initdb --tune=1c --locale=ru_RU.UTF-8
+sudo systemctl enable --now postgrespro-std-12
+ss -nltup
+
+ sudo vi /var/lib/pgpro/std-12/data/pg_hba.conf
+#IPv4 local connections:
+host all all 127.0.0.1/32 md5
+host all all 192.168.11.0/24 md5
+
+Создадим пароль для пользователя postgres
+sudo su - postgres
+psql
+ALTER USER postgres WITH ENCRYPTED PASSWORD 'Viseo193DX';
+/q
+exit
+
+перезап
+sudo systemctl restart postgrespro-std-12
+
+
+тут ъватит пробуем базу
+
+
