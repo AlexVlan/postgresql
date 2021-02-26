@@ -46,4 +46,13 @@ sudo systemctl restart postgrespro-std-12
 
 тут ъватит пробуем базу
 
+sudo firewall-cmd --permanent --add-port=80/tcp
+$ sudo firewall-cmd --permanent --add-port=1540/tcp
+$ sudo firewall-cmd --permanent --add-port=1541/tcp
+$ sudo firewall-cmd --permanent --add-port=1560/tcp
+$ sudo firewall-cmd --permanent --add-port=5432/tcp
+$ sudo firewall-cmd --reload
+$ sudo firewall-cmd --list-all
+
+
 
