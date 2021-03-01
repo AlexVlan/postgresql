@@ -56,3 +56,9 @@ $ sudo firewall-cmd --list-all
 
 
 
+sudo -i -u postgres   перейти в постгрес
+pg_restore -d tm /var/lib/pgpro/1c-10/backups/ftm.backup    - развернуть базу
+базы живут в /var/bases
+
+
+
