@@ -36,7 +36,7 @@ host all all 192.168.11.0/24 md5
 Создадим пароль для пользователя postgres
 sudo su - postgres
 psql
-ALTER USER postgres WITH ENCRYPTED PASSWORD 'Viseo193DX';
+ALTER USER postgres WITH ENCRYPTED PASSWORD '93DX';
 /q
 exit
 
