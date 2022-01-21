@@ -15,5 +15,5 @@ resource "aws-instance" "amazon-l" { #install ubuntu from image ami ubuntu with 
     instance-type "t3.micro"
 
 }
-
+big black fuck
 
